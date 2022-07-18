@@ -4,6 +4,6 @@ def safe_function(fct, *args):
     try:
         result = fct(*args)
     except Exception as ex:
-        sys.stderr.wwrite("Exception: {}\n".format(ex))
+        sys.stderr.write("Exception: {}\n".format(ex))
         result = None
     return (result)

@@ -66,4 +66,4 @@ A TypeError is raised if either argument is non-integer and non-float.
 
 	>>> add_integer(None)
 	Traceback (most recent call last):
-	TypeError: a must be an integer 
+	TypeError: a must be an integer

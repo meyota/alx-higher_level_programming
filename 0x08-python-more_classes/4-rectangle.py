@@ -49,7 +49,7 @@ class Rectangle:
         """Return the perimeter of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return (0)
-        return 2 * (self.__width + self.height)
+        return 2 * (self.__width + self.__height)
 
     def __str__(self):
         """Return the printable representation of the rectangle.
@@ -57,12 +57,12 @@ class Rectangle:
         """
 
         if self.__width == 0 or self.__height == 0:
-            return ''
+            return ("")
         else:
             res = list(map(
                 lambda x: '#' * self.__width + '\n' * (x != self.__height -1),
                 range(self.__height)))
-            return ''.join(res)
+            return ("".join(res))
 
     def __repr__(self):
         """Return the string representation of the rectangle."""

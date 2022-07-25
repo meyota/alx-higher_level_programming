@@ -8,7 +8,6 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """Initialize a rectangle.
-
         Args:
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
@@ -50,19 +49,17 @@ class Rectangle:
         """Return the perimeter of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return (0)
-        return 2 * (self.__width + self.__height)
+        return 2 * (self.__width + self.height)
 
     def __str__(self):
         """Return the printable representation of the rectangle.
-
         Represents the rectangle with # character.
         """
-
         if self.__width == 0 or self.__height == 0:
             return ("")
         else:
             res = list(map(
-                lambda x: '#' * self.__width + '\n' * (x != self.__height -1),
+                lambda x: '#' * self.__width + '\n' * (x != self.__height-1),
                 range(self.__height)))
             return ("".join(res))
 

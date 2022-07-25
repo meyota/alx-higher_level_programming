@@ -2,6 +2,7 @@
 
 """A module for working with Rectangle."""
 
+
 class Rectangle:
     """Defines a rectangle."""
 

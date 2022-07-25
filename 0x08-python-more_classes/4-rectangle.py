@@ -53,6 +53,7 @@ class Rectangle:
 
     def __str__(self):
         """Return the printable representation of the rectangle.
+
         Represents the rectangle with # character.
         """
 

@@ -56,10 +56,11 @@ class Rectangle:
 
         Represents the rectangle with # character.
         """
+
         if self.__width == 0 or self.__height == 0:
             return ''
         else:
             res = list(map(
                 lambda x: '#' * self.__width + '\n' * (x != self.__height -1),
-                range(self.height)))
+                range(self.__height)))
             return ''.join(res)

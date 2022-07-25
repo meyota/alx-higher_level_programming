@@ -53,14 +53,12 @@ class Rectangle:
 
     def __str__(self):
         """Return the printable representation of the rectangle.
-
         Represents the rectangle with # character.
         """
-
         if self.__width == 0 or self.__height == 0:
-            return ''
+            return ("")
         else:
             res = list(map(
-                lambda x: '#' * self.__width + '\n' * (x != self.__height -1),
+                lambda x: '#' * self.__width + '\n' * (x != self.__height-1),
                 range(self.__height)))
-            return ''.join(res)
+            return ("".join(res))

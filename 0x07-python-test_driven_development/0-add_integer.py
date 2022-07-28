@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module for an integer define function."""
 
+
 def add_integer(a, b=98):
     """ adds integers
         Arguments:

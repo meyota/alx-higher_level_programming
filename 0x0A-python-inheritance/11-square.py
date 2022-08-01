@@ -8,8 +8,14 @@ class Square(Rectangle):
     """Represent a square."""
 
     def __init__(self, size):
-        """Initialize a new square."""
-
+        """Defines attributes"""
         self.integer_validator("size", size)
-        super().__init__(size, size)
-        self.__size = size
+        self.__size =size
+
+    def area(self):
+        """calulates area of square"""
+        return self.__size * self.__size
+
+    def __str__(self):
+        """Representaion of a square"""
+        return "[Square] {}/{}".format(self.__size, self.__size)

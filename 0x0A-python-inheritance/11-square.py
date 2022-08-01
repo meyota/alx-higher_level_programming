@@ -20,4 +20,4 @@ class Square(Rectangle):
 
     def __str__(self):
         """Representaion of a square"""
-        return "[Square] {:d}/{:d}".format(self.__size, self.__size)
+        return ("[Square] {:d}/{:d}".format(self.__size, self.__size))

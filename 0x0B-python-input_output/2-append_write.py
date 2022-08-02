@@ -2,6 +2,7 @@
 
 """Define text append."""
 
+
 def append_write(filename="", text=""):
     """Append string to the end of UTF8 text file.
 

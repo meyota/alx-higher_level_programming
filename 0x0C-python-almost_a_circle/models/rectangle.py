@@ -82,3 +82,16 @@ class Rectangle(Base):
         '''
 
         return self.__width * self.__height
+
+    def display(self):
+        '''
+            Prints to stdout the representation of the rectangle.
+            y is newline, x is space
+        '''
+
+        if self.__y != 0:
+            for newline in range(self.__y):
+                print()
+
+        for row in range(self.__height):
+            print((self.__x * ' ') + (self.__width * '#'))

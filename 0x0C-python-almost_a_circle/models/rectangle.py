@@ -113,5 +113,5 @@ class Rectangle(Base):
                 self.y = args[3]
             except IndexError:
                 pass
-            else:
-                print()
+        else:
+            print()

@@ -32,7 +32,7 @@ class Base:
         return json.dumps(list_dictionaries)
 
     @staticmethod
-    def save_to_file(cls, list_objs):
+    def from_json_string(json_string):
         '''
             returns dict from a string.
         '''

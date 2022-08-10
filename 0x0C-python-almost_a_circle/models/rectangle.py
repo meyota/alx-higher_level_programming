@@ -103,3 +103,15 @@ class Rectangle(Base):
 
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
                                                        self.width, self.height)
+
+    def update(self, *args):
+        if len(args) != 0:
+            try:
+                self.id = args[0]
+                self.size = args[1]
+                self.x = args[2]
+                self.y = args[3]
+            except IndexError:
+                pass
+            else:
+                print()

@@ -30,3 +30,12 @@ class Base:
         if list_dictionaries is None:
             return '[]'
         return json.dumps(list_dictionaries)
+
+    @staticmethod
+    def save_to_file(cls, list_objs):
+        '''
+            returns dict from a string.
+        '''
+        if json_string is None or len(json_string) == 0:
+            return []
+        return json.loads(json_string)

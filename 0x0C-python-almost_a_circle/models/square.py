@@ -38,3 +38,20 @@ class Square(Rectangle):
                                                          self.x,
                                                          self.y,
                                                          self.width)
+
+    def update(self, *args, **kwargs):
+        '''update square'''
+        if len(args):
+            for i, arg in enumerate(args):
+                if i == 0:
+                    self.id = arg
+                elif i == 1:
+                    self.size = arg
+                elif i == 2:
+                    self.x = arg
+                elif i == 3:
+                    self.y = arg
+        else:
+            for k, v in kwargs.items():
+                if hasattr(self, k) is True:
+                    setattr(self, k, v)

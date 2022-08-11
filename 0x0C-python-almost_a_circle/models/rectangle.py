@@ -124,5 +124,8 @@ class Rectangle(Base):
         '''
             returns dict representation.
         '''
-        return {'x': self.__x, 'y': self.__y, 'id': self.__id,
-                'height': self.__height, 'width': self.__width}
+        return {'x': getattr(self, "x"),
+                'y': getattr(self, "y"),
+                'id': getattr(self, "id"),
+                'height': getattr(self, "height"),
+                'width': getattr(self, "width")}

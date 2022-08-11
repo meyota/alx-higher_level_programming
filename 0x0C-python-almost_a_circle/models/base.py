@@ -3,7 +3,6 @@
     Base class for all other classes.
 '''
 import json
-import csv
 
 
 class Base:
@@ -28,6 +27,6 @@ class Base:
             returns json representation
         '''
         if list_dictionaries is None or list_dictionaries == []:
-            return '[]'
+            return "[]"
         else:
             return json.dumps(list_dictionaries)

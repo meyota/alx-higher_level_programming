@@ -74,7 +74,7 @@ class Base:
         try:
             with open(filename, 'r') as f:
                 res = cls.from_json_string(f.read())
-        for i, e in enumerate(l):
+        for i, e in enumerate(res):
                 res[i] = cls.create(**res[i])
         except:
             pass

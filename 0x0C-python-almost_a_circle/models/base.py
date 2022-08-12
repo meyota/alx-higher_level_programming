@@ -71,16 +71,15 @@ class Base:
     @classmethod
     def load_from_file(cls):
         filename = cls.__name__ + ".json"
-        ld = []
+        l = []
         try:
             with open(filename, 'r') as jsonfile:
-                ld = cls.from_json_string(jsonfile.read())
-            for i, e in enumerate(ld):
-                ld[i] = cls.creat(**ld[i])
+                l = cls.from_json_string(jsonfile.read())
+            for i, e in enumerate(l):
+                l[i] = cls.create(**l[i])
         except:
             pass
-        return ld
-
+        return l
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """serializes a list of Rectangles/Squares in csv"""
@@ -118,131 +117,3 @@ class Base:
         except:
             pass
         return l
-
-    @staticmethod
-    def draw(list_rectangles, list_squares):
-        """opens a window and draws all the Rectangles and Squares"""
-                                      "y": int(args[4])}
-                    elif cls.__name__ is "Square":
-                        dictionary = {"id": int(args[0]), "size": int(args[1]),
-                                      "x": int(args[2]), "y": int(args[3])}
-                    obj = cls.create(**dictionary)
-                    l.append(obj)
-        except:
-            pass
-        return l
-
-    @staticmethod
-    def draw(list_rectangles, list_squares):
-        """opens a window and draws all the Rectangles and Squares"""
-                                      "y": int(args[4])}
-                    elif cls.__name__ is "Square":
-                        dictionary = {"id": int(args[0]), "size": int(args[1]),
-                                      "x": int(args[2]), "y": int(args[3])}
-                    obj = cls.create(**dictionary)
-                    l.append(obj)
-        except:
-            pass
-        return l
-
-    @staticmethod
-    def draw(list_rectangles, list_squares):
-        """opens a window and draws all the Rectangles and Squares"""
-        screen_width = 620
-        padding = 10
-        row_width = padding
-        row_height = 0
-        screen_height = padding
-        color_list = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo',
-                      'violet']
-        color_size = len(color_list)
-        color_index = 0
-        for rect in list_rectangles:
-            potential_width = row_width + rect.width + rect.x + padding
-            if (row_width == padding or potential_width < screen_width):
-                row_width += rect.width + rect.x + padding
-                if (row_height < rect.height + rect.y):
-                    row_height = rect.height + rect.y
-            else:
-                screen_height += row_height + padding
-                row_width = rect.width + rect.x + padding * 2
-                row_height = rect.height + rect.y
-
-        for square in list_squares:
-            potential_width = row_width + square.size + square.x + padding
-            if (row_width == padding or potential_width < screen_width):
-                row_width += square.size + square.x + padding
-                if (row_height < square.size + square.y):
-                    row_height = square.size + square.y
-            else:
-                screen_height += row_height + padding
-                row_width = square.size + square.x + padding * 2
-                row_height = square.size + square.y
-        turtle.screensize(canvwidth=screen_width, canvheight=screen_height)
-        turtle.pu()
-        turtle.left(180)
-        turtle.forward(screen_width/2 - padding)
-        turtle.right(90)
-        turtle.forward(screen_height/2 - padding)
-        turtle.right(90)
-        row_width = padding
-        row_height = 0
-        for rect in list_rectangles:
-            potential_width = row_width + rect.width + rect.x + padding
-            if (row_width == padding or potential_width < screen_width):
-                row_width += rect.width + rect.x + padding
-                if (row_height < rect.height + rect.y):
-                    row_height = rect.height + rect.y
-            else:
-                turtle.pu()
-                turtle.left(180)
-                turtle.forward(row_width - padding)
-                turtle.left(90)
-                turtle.forward(row_height + padding)
-                turtle.left(90)
-                row_width = rect.width + rect.x + padding * 2
-                row_height = rect.height + rect.y
-            turtle.pd()
-            turtle.pencolor(color_list[color_index % color_size])
-            for _ in range(4):
-                turtle.forward(5)
-                turtle.back(5)
-                turtle.right(90)
-            turtle.pu()
-            turtle.forward(rect.x)
-            turtle.right(90)
-            turtle.forward(rect.y)
-            turtle.left(90)
-            turtle.pd()
-            turtle.pencolor('black')
-            turtle.fillcolor(color_list[color_index % color_size])
-            turtle.begin_fill()
-            for _ in range(2):
-                turtle.forward(rect.width)
-                turtle.right(90)
-                turtle.forward(rect.height)
-                turtle.right(90)
-            turtle.end_fill()
-            color_index += 1
-            turtle.pu()
-            turtle.forward(rect.width + padding)
-            turtle.left(90)
-            turtle.forward(rect.y)
-            turtle.right(90)
-
-        for square in list_squares:
-            potential_width = row_width + square.size + square.x + padding
-            if (row_width == padding or potential_width < screen_width):
-                row_width += square.size + square.x + padding
-                if (row_height < square.size):
-                    row_height = square.size + square.y
-            else:
-                turtle.pu()
-                turtle.left(180)
-                turtle.forward(row_width - padding)
-                turtle.left(90)
-                turtle.forward(row_height + padding)
-                turtle.left(90)
-                row_width = square.size + square.x + padding * 2
-                row_height = square.size + square.y
-            turtle.pd()

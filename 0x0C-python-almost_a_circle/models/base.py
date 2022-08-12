@@ -66,3 +66,16 @@ class Base:
         # update temp with obj func update()
         temp.update(**dictionary)
         return temp
+
+    @classmethod
+    def load_from_file(cls):
+        filename = cls.__name__ + ".json"
+        l = []
+        try:
+            with open(filename, 'r') as f:
+                l = cls.from_json_string(f.read())
+            for i, e in enumerate(l):
+                l[i] = cls.create(**l[i])
+        except:
+            pass
+        return l

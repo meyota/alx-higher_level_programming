@@ -3,7 +3,6 @@
     Base class for all other classes.
 '''
 import json
-import csv
 
 
 class Base:

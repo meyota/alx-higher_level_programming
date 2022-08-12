@@ -70,13 +70,18 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        filename = cls.__name__ + ".json"
-        l = []
-        try:
-            with open(filename, 'r') as jsonfile:
-                l = cls.from_json_string(jsonfile.read())
-            for i, e in enumerate(l):
-                l[i] = cls.create(**l[i])
-        except:
-            pass
-        return l
+        """Returns a list of instances
+        """
+
+        res = []
+        with open(cls.__name__ + ".json", mode="r") as read_file:
+            text = read_file.read()
+        # Converting str to list
+        text = cls.from_json_string(text)
+        for item in text:
+            # Formatting dicts into str format
+            if type(item) == dict:
+                res.append(cls.create(**item))
+            else:
+                res.append(item)
+        return res

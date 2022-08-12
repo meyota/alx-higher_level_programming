@@ -73,8 +73,8 @@ class Base:
         filename = cls.__name__ + ".json"
         l = []
         try:
-            with open(filename, 'r') as jsonfile:
-                l = cls.from_json_string(jsonfile.read())
+            with open(filename, 'r') as f:
+                l = cls.from_json_string(f.read())
             for i, e in enumerate(l):
                 l[i] = cls.create(**l[i])
         except:

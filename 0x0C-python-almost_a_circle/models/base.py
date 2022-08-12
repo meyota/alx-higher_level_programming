@@ -70,22 +70,13 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        '''
-            loading dict representing the parameters for
-            and instance and from that creating instances
-        '''
-        file_name = cls.__name__ + ".json"
-
+        filename = cls.__name__ + ".json"
+        l = []
         try:
-            with open(file_name, encoding="UTF8") as fd:
-                content = cls.from_json_string(fd.read())
+            with open(filename, 'r') as f:
+                l = cls.from_json_string(f.read())
+            for i, e in enumerate(l):
+                l[i] = cls.create(**l[i])
         except:
-            return []
-
-        instances = []
-
-        for instance in content:
-            tmp = cls.create(**instance)
-            instances.append(tmp)
-
-        return instances
+            pass
+        return l

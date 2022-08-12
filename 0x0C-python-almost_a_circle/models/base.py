@@ -69,6 +69,19 @@ class Base:
         return temp
 
     @classmethod
+    def load_from_file(cls):
+        filename = cls.__name__ + ".json"
+        ld = []
+        try:
+            with open(filename, 'r') as jsonfile:
+                ld = cls.from_json_string(jsonfile.read())
+            for i, e in enumerate(ld):
+                ld[i] = cls.creat(**ld[i])
+        except:
+            pass
+        return ld
+
+    @classmethod
     def save_to_file_csv(cls, list_objs):
         """serializes a list of Rectangles/Squares in csv"""
         filename = cls.__name__ + ".csv"
@@ -96,6 +109,32 @@ class Base:
                                       "width": int(args[1]),
                                       "height": int(args[2]),
                                       "x": int(args[3]),
+                                      "y": int(args[4])}
+                    elif cls.__name__ is "Square":
+                        dictionary = {"id": int(args[0]), "size": int(args[1]),
+                                      "x": int(args[2]), "y": int(args[3])}
+                    obj = cls.create(**dictionary)
+                    l.append(obj)
+        except:
+            pass
+        return l
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """opens a window and draws all the Rectangles and Squares"""
+                                      "y": int(args[4])}
+                    elif cls.__name__ is "Square":
+                        dictionary = {"id": int(args[0]), "size": int(args[1]),
+                                      "x": int(args[2]), "y": int(args[3])}
+                    obj = cls.create(**dictionary)
+                    l.append(obj)
+        except:
+            pass
+        return l
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """opens a window and draws all the Rectangles and Squares"""
                                       "y": int(args[4])}
                     elif cls.__name__ is "Square":
                         dictionary = {"id": int(args[0]), "size": int(args[1]),
@@ -207,29 +246,3 @@ class Base:
                 row_width = square.size + square.x + padding * 2
                 row_height = square.size + square.y
             turtle.pd()
-            turtle.pencolor(color_list[color_index % color_size])
-            for _ in range(4):
-                turtle.forward(5)
-                turtle.back(5)
-                turtle.right(90)
-            turtle.pu()
-            turtle.forward(square.x)
-            turtle.right(90)
-            turtle.forward(square.y)
-            turtle.left(90)
-            turtle.pd()
-            turtle.pencolor('black')
-            turtle.fillcolor(color_list[color_index % color_size])
-            turtle.begin_fill()
-            for _ in range(4):
-                turtle.forward(square.size)
-                turtle.right(90)
-            turtle.end_fill()
-            color_index += 1
-            turtle.pu()
-            turtle.forward(square.size + padding)
-            turtle.left(90)
-            turtle.forward(square.y)
-            turtle.right(90)
-
-        turtle.getscreen()._root.mainloop()

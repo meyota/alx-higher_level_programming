@@ -71,15 +71,15 @@ class Base:
     @classmethod
     def load_from_file(cls):
         filename = cls.__name__ + ".json"
-        l = []
+        temp = []
         try:
             with open(filename, 'r') as f:
-                l = cls.from_json_string(f.read())
-            for i, e in enumerate(l):
-                l[i] = cls.create(**l[i])
+                temp = cls.from_json_string(f.read())
+            for i, e in enumerate(temp):
+                temp[i] = cls.create(**temp[i])
         except:
             pass
-        return l
+        return temp
 
     @classmethod
     def save_to_file_csv(cls, list_objs):

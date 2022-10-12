@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 from model_state import Base, State
 from sys import argv
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
 
 if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
